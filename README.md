@@ -2,8 +2,7 @@
 
 O Inventário NM é um app para auditoria de estoque.
 
-![image](https://user-images.githubusercontent.com/32520465/149388957-4e21e16b-69e9-413c-9e2e-939ccd9b4dcb.png)
-
+<img src="https://user-images.githubusercontent.com/32520465/149388957-4e21e16b-69e9-413c-9e2e-939ccd9b4dcb.png" width="300"> <img src="https://user-images.githubusercontent.com/32520465/149390744-575fe57b-ed57-4753-a25d-54bde9b9bcbc.png" width="300"> <img src="https://user-images.githubusercontent.com/32520465/149390848-b966844f-b80c-4cae-a956-7e39c4874342.png" width="300">
 
 ## Recursos
 
