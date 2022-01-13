@@ -2,6 +2,9 @@
 
 O Inventário NM é um app para auditoria de estoque.
 
+![image](https://user-images.githubusercontent.com/32520465/149388957-4e21e16b-69e9-413c-9e2e-939ccd9b4dcb.png)
+
+
 ## Recursos
 
 - Mesmo login do Vtrine utilizando a API do Cockpit
@@ -16,10 +19,6 @@ Inventário NM usa algumas tecnologias para funcionar corretamente:
 - [Dart]() - Linguagem de programação fortemente tipada
 - [Flutter]() - Framework para mobile Android e IOS
 - [Android Studio](https://developer.android.com/studio?hl=pt-br) - O Android Studio fornece as ferramentas para criar aplicativos em dispositivos Android
-
-## Instalação do APK
-
-Ainda em processamento
 
 ## Desenvolvimento
 
