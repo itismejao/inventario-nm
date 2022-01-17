@@ -70,6 +70,7 @@ class _DrawerInventarioState extends State<DrawerInventario> {
   @override
   void dispose() {
     boxatt.close();
+    super.dispose();
   }
 
   AppConfig _appConfig = AppConfig();
