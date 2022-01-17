@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:inventario_nm/src/modules/api/api_produtos.dart';
 import 'package:inventario_nm/src/modules/login/login_page.dart';
 import 'package:inventario_nm/src/shared/config/app_config.dart';
@@ -48,6 +49,9 @@ class _DrawerInventarioState extends State<DrawerInventario> {
 
   String _userName = "";
 
+  final boxatt = Hive.box('DataUltimaAtualizacao');
+
+
   
 
   _loadUserInfo() async {
@@ -60,6 +64,12 @@ class _DrawerInventarioState extends State<DrawerInventario> {
         _userName = prefs.getString('user.name') ?? "";
       });
     });
+  }
+
+
+  @override
+  void dispose() {
+    boxatt.close();
   }
 
   AppConfig _appConfig = AppConfig();
@@ -112,6 +122,7 @@ class _DrawerInventarioState extends State<DrawerInventario> {
                             });
                           }
                           _loading = await ApiProdutos.getProducts(0, 10000);
+                          boxatt.put(0, DateTime.now());
                           if(mounted){
                             setState(() {
                               _loading;
@@ -188,7 +199,8 @@ class _DrawerInventarioState extends State<DrawerInventario> {
                     DrawerInventario.error ? 
                     Text("Não foi possível conectar com a base de dados, verifique se você está em uma internet local (VPN/Wifi nmadim)", 
                     style: TextStyle(color: _appConfig.colors['vermelho_padrao']),textAlign: TextAlign.center) 
-                    : SizedBox.shrink()
+                    : SizedBox.shrink(),
+                    Text("Data última att: ${boxatt.get(0)}")
                   ],
                 ),
               ],

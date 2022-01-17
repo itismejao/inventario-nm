@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:hive/hive.dart';
 import 'package:inventario_nm/src/model/Produto.dart';
 import 'package:inventario_nm/src/persist/produto_helper.dart';
 
@@ -16,8 +19,11 @@ class ProdutoController{
   }
 
   static Future salvarProduto(Produto produto) async {
-    ProdutoHelper helper = ProdutoHelper();
-    await helper.salvarProduto(produto);
+    final box = Hive.box<Produto>('Produto');
+    box.put(produto.id_produto, produto);
+    print(box.length);
+    //ProdutoHelper helper = ProdutoHelper();
+    //await helper.salvarProduto(produto);
   }
 
 }

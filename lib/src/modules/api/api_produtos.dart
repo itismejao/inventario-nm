@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:hive/hive.dart';
 import 'package:inventario_nm/src/controller/produto_controller.dart';
 import 'package:inventario_nm/src/model/Produto.dart';
 import 'package:http/http.dart' as http;

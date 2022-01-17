@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive/hive.dart';
+import 'package:inventario_nm/src/model/Produto.dart';
 import 'package:inventario_nm/src/modules/login/splash_sreen.dart';
 import 'package:inventario_nm/src/persist/dbhelper.dart';
 import 'package:inventario_nm/src/shared/config/app_config.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +30,18 @@ class _MyAppState extends State<MyApp> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+
+    iniciarHive();
+
+
+  }
+
+  iniciarHive() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Hive.initFlutter();
+    Hive.registerAdapter(ProdutoAdapter());
+    await Hive.openBox<Produto>('Produto');
+    await Hive.openBox('DataUltimaAtualizacao');
   }
 
   testeBD() async {

@@ -1,9 +1,18 @@
+import 'package:hive/hive.dart';
 import 'package:inventario_nm/src/persist/dbhelper.dart';
 
-class Produto{
+part 'Produto.g.dart';
 
+@HiveType(typeId: 0)
+class Produto extends HiveObject{
+
+  @HiveField(0)
   int? _id_produto;
+
+  @HiveField(1)
   String? _nome;
+
+  @HiveField(2)
   String? _ean;
 
   Produto([this._id_produto,this._ean, this._nome]) {}
